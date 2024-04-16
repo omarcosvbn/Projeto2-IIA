@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "SodaRacer2024 - Alunos.sln"
+    "dotnet.defaultSolution": "Projeto2-IIA.sln"
 }
