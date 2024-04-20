@@ -50,6 +50,8 @@ namespace GeneticSharp.Runner.UnityApp.Car
 
                 fitness = SumVelocities;
 
+                /*END OF YOUR CODE*/
+
                 c.Fitness = fitness;
 
             } while (!c.Evaluated);

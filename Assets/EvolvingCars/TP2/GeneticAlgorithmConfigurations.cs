@@ -12,7 +12,7 @@ public static class GeneticAlgorithmConfigurations
     * Configuration of the algorithm: You should change the configurations of the algorithm here
     */
 
-    public static float crossoverProbability = 0.9f; 
+    public static float crossoverProbability = 0.5f; 
     public static float mutationProbability = 0.05f; 
     public static int maximumNumberOfGenerations = 30;
     public static int eliteSize = 2;

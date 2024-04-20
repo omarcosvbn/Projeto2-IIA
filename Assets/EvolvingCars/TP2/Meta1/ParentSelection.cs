@@ -24,12 +24,15 @@ public class ParentSelection : SelectionBase
 
         IList<CarChromosome> population = generation.Chromosomes.Cast<CarChromosome>().ToList();
         IList<IChromosome> parents = new List<IChromosome>();
-
+        
+        /* YOUR CODE HERE */
+        /*REPLACE THESE LINES BY YOUR PARENT SELECTION IMPLEMENTATION*/
         int[] randomIndexes = RandomizationProvider.Current.GetUniqueInts(number, 0, population.Count);
         while (parents.Count < number)
         {
             parents.Add(population[randomIndexes[parents.Count]]);
         }
+        /*END OF YOUR CODE*/
 
         return parents;
     }

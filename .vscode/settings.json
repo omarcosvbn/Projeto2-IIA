@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Projeto2-IIA.sln"
+    "dotnet.defaultSolution": "FIA_IIA_2023_2024_TP2.sln"
 }

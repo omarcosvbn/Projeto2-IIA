@@ -101,7 +101,7 @@ public class EvaluateBest : MonoBehaviour
     protected double[] loadGenotype()
     {
         string lines = System.IO.File.ReadAllLines(FilePath)[0];
-        string[] genotypeValues = lines.Split(',');
+        string[] genotypeValues = lines.Split(';');
         double[] genotype = new double[genotypeValues.Length];
         
         for(int i = 0; i < genotypeValues.Length; i++)

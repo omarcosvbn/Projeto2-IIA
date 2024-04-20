@@ -44,8 +44,12 @@ namespace GeneticSharp.Runner.UnityApp.Commons
             IChromosome parent2 = parents[1];
             IChromosome offspring1 = parent1.Clone();
             IChromosome offspring2 = parent2.Clone();
+
+            /* YOUR CODE HERE */
+            /*REPLACE THESE LINES BY YOUR CROSSOVER IMPLEMENTATION*/
             offspring1.ReplaceGenes(0, parent2.GetGenes().ToArray());
             offspring2.ReplaceGenes(0, parent1.GetGenes().ToArray());
+            /*END OF YOUR CODE*/
 
             return new List<IChromosome> { offspring1, offspring2 };
             

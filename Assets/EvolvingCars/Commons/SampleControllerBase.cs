@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using GeneticSharp.Domain;
 using System.Threading;
@@ -192,7 +192,17 @@ public abstract class SampleControllerBase : MonoBehaviour {
     {
         //Debug.Log(GA.BestChromosome);
         string pathToFile = this.folderName + "/"+ generationsNumber + "-BestGenotype.txt";
-        File.WriteAllText(pathToFile, GA.BestChromosome.ToString());
+        string s = "";
+        foreach (var gene in GA.BestChromosome.GetGenes())
+        {
+            s += gene.Value;
+            if (gene != GA.BestChromosome.GetGenes().Last())
+            {
+                s += ";";
+            }
+        }
+        
+        File.WriteAllText(pathToFile, s);
         
     }
 
