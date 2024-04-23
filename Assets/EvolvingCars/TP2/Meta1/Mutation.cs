@@ -2,6 +2,7 @@ using System.Diagnostics;
 using GeneticSharp.Domain.Chromosomes;
 using GeneticSharp.Domain.Mutations;
 using GeneticSharp.Runner.UnityApp.Car;
+using System;
 
 public class Mutation : IMutation
 {
@@ -17,8 +18,24 @@ public class Mutation : IMutation
         
         /* YOUR CODE HERE */
         /*REPLACE THESE LINES BY YOUR MUTATION IMPLEMENTATION*/
-        CarChromosome newChromosome = new CarChromosome(((CarChromosome)chromosome).getConfig());
-        chromosome.ReplaceGenes(0, newChromosome.GetGenes());
+        if (!(chromosome is CarChromosome carChromosome))
+        {
+            throw new ArgumentException("The chromosome is not of type CarChromosome.");
+        }
+
+        var genes = carChromosome.GetGenes();
+        var rnd = new Random();
+
+        for (int i = 0; i < genes.Length; i++)
+        {
+            if (rnd.NextDouble() < probability)
+            {
+                // Perform mutation by randomly generating a new gene value
+                genes[i] = carChromosome.GenerateGene(i);
+            }
+        }
+
+        carChromosome.ReplaceGenes(0, genes);
         /*END OF YOUR CODE*/
     }
 
