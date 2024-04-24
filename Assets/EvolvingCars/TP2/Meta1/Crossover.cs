@@ -47,8 +47,16 @@ namespace GeneticSharp.Runner.UnityApp.Commons
 
             /* YOUR CODE HERE */
             /*REPLACE THESE LINES BY YOUR CROSSOVER IMPLEMENTATION*/
-            offspring1.ReplaceGenes(0, parent2.GetGenes().ToArray());
-            offspring2.ReplaceGenes(0, parent1.GetGenes().ToArray());
+
+            for (int i = 0; i < parent1.Length; i++)
+            {
+                if (RandomizationProvider.Current.GetDouble() <= crossoverProbability)
+                {
+                    offspring1.ReplaceGene(i, parent2.GetGene(i));
+                    offspring2.ReplaceGene(i, parent1.GetGene(i));
+                }
+            }
+
             /*END OF YOUR CODE*/
 
             return new List<IChromosome> { offspring1, offspring2 };
