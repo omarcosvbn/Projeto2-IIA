@@ -18,20 +18,18 @@ public class Mutation : IMutation
         
         /* YOUR CODE HERE */
         /*REPLACE THESE LINES BY YOUR MUTATION IMPLEMENTATION*/
-        if (!(chromosome is CarChromosome carChromosome))
-        {
+
+        if (!(chromosome is CarChromosome carChromosome)){
             throw new ArgumentException("The chromosome is not of type CarChromosome.");
         }
 
         var genes = carChromosome.GetGenes();
         var rnd = new Random();
 
-        for (int i = 0; i < genes.Length; i++)
-        {
-            if (rnd.NextDouble() < probability)
-            {
-                // Perform mutation by randomly generating a new gene value
-                genes[i] = carChromosome.GenerateGene(i);
+        for (int i = 0; i < genes.Length; i++){
+            if (rnd.NextDouble() < probability){
+                CarChromosome newChromosome = new CarChromosome(carChromosome.getConfig());
+                genes[i] = newChromosome.GetGene(i);
             }
         }
 
