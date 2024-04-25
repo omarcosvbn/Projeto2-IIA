@@ -19,9 +19,7 @@ public class Mutation : IMutation
         /* YOUR CODE HERE */
         /*REPLACE THESE LINES BY YOUR MUTATION IMPLEMENTATION*/
 
-        if (!(chromosome is CarChromosome carChromosome)){
-            throw new ArgumentException("The chromosome is not of type CarChromosome.");
-        }
+        var carChromosome = (CarChromosome)chromosome;
 
         var genes = carChromosome.GetGenes();
         var rnd = new Random();
