@@ -26,7 +26,7 @@ public class ParentSelection : SelectionBase
         
         /* YOUR CODE HERE */
         /*REPLACE THESE LINES BY YOUR PARENT SELECTION IMPLEMENTATION*/
-        int tournamentSize = 2; // Tamanho do torneio
+        int tournamentSize = 5; // Tamanho do torneio
         while (parents.Count < number)
         {
             // Selecionar aleatoriamente indivíduos para o torneio
