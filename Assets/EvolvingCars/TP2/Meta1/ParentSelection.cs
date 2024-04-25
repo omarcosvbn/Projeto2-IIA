@@ -8,7 +8,6 @@ using GeneticSharp.Domain.Randomizations;
 using GeneticSharp.Domain.Selections;
 using GeneticSharp.Infrastructure.Framework.Texts;
 using GeneticSharp.Runner.UnityApp.Car;
-using UnityEngine;
 
 public class ParentSelection : SelectionBase
 {
