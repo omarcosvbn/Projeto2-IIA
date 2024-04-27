@@ -26,24 +26,30 @@ public class ParentSelection : SelectionBase
         
         /* YOUR CODE HERE */
         /*REPLACE THESE LINES BY YOUR PARENT SELECTION IMPLEMENTATION*/
-        int tournamentSize = 5; // Tamanho do torneio
-        while (parents.Count < number)
-        {
-            // Selecionar aleatoriamente indivíduos para o torneio
+
+        // Initialize tournament size
+        int tournamentSize = 5;
+
+        // Continue selecting parents until the desired number is reached
+        while (parents.Count < number){
+
+            // Randomly select tournament participants from the population
             var tournamentParticipantsIndexes = RandomizationProvider.Current.GetUniqueInts(tournamentSize, 0, population.Count);
 
-            // Encontrar o vencedor do torneio
+            // Initialize the winner of the tournament
             CarChromosome winner = null;
-            foreach (var index in tournamentParticipantsIndexes)
-            {
+
+            // Iterate over tournament participants
+            foreach (var index in tournamentParticipantsIndexes){
                 var participant = population[index];
-                if (winner == null || participant.Fitness > winner.Fitness)
-                {
+
+                // Determine the winner of the tournament based on fitness
+                if (winner == null || participant.Fitness > winner.Fitness){
                     winner = participant;
                 }
             }
 
-            // Adicionar o vencedor à lista de pais
+            // Add the winner of the tournament to the selected parents
             parents.Add(winner);
         }
         /*END OF YOUR CODE*/
