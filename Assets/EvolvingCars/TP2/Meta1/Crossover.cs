@@ -1,10 +1,10 @@
 using GeneticSharp.Domain.Chromosomes;
 using System;
 using System.Linq;
-using UnityEngine;
 using GeneticSharp.Domain.Randomizations;
 using System.Collections.Generic;
 using GeneticSharp.Domain.Crossovers;
+using System.Drawing.Text;
 
 namespace GeneticSharp.Runner.UnityApp.Commons
 {
@@ -47,13 +47,14 @@ namespace GeneticSharp.Runner.UnityApp.Commons
 
             /* YOUR CODE HERE */
             /*REPLACE THESE LINES BY YOUR CROSSOVER IMPLEMENTATION*/
+            var genes = offspring1.GetGenes();
+            int length = genes.Length;
+            var rnd = new Random();
+            int end = rnd.Next(0, length - 1);
 
-            // Iterate over each gene in the chromosomes
-            for (int i = 0; i < parent1.Length; i++){
-
-                // Check if a crossover should occur based on the probability
-                if (RandomizationProvider.Current.GetDouble() <= crossoverProbability){
-
+            // Check if a crossover should occur based on the probability
+            if (RandomizationProvider.Current.GetDouble() <= crossoverProbability){
+                for (int i = 0; i <= end; i++){
                     // Swap genes between parents to create offspring
                     offspring1.ReplaceGene(i, parent2.GetGene(i));
                     offspring2.ReplaceGene(i, parent1.GetGene(i));
