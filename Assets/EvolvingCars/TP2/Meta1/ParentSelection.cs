@@ -28,7 +28,7 @@ public class ParentSelection : SelectionBase
         /*REPLACE THESE LINES BY YOUR PARENT SELECTION IMPLEMENTATION*/
 
         // Initialize tournament size
-        int tournamentSize = 2;
+        int tournamentSize = 5;
 
         // Continue selecting parents until the desired number is reached
         while (parents.Count < number){
