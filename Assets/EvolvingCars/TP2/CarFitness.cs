@@ -47,7 +47,13 @@ namespace GeneticSharp.Runner.UnityApp.Car
 
                 /*YOUR CODE HERE*/
                 /*Note que é executado ao longo da simulação*/
-                fitness = SumVelocities + Distance;
+                float WeightTime = 0.1f;
+                float WeightDistance = 0.5f;
+                float WeightVelocity = 0.1f;
+                float BonusCompletion = 100f; // Bônus para conclusão da pista
+
+                fitness = WeightTime * (-EllapsedTime) + WeightDistance * Distance + WeightVelocity * SumVelocities;
+                if (RoadCompleted == 1) fitness += BonusCompletion;
                 /*END OF YOUR CODE*/
 
                 c.Fitness = fitness;
