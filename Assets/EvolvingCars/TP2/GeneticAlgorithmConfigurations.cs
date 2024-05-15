@@ -14,7 +14,7 @@ public static class GeneticAlgorithmConfigurations
 
     public static float crossoverProbability = 0.5f; 
     public static float mutationProbability = 0.02f; 
-    public static int maximumNumberOfGenerations = 70;
+    public static int maximumNumberOfGenerations = 30;
     public static int eliteSize = 2;
 
     public static int minGeneValue = 1;
