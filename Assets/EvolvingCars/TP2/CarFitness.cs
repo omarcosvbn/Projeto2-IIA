@@ -47,7 +47,8 @@ namespace GeneticSharp.Runner.UnityApp.Car
 
                 /*YOUR CODE HERE*/
                 /*Note que é executado ao longo da simulação*/
-                fitness = Distance + 0.0001f * SumTotalForces;
+                fitness = Distance + 0.0001f * (-Mathf.Abs(SumTotalForces));
+                if(RoadCompleted == 1) fitness += 1000f;
                 /*END OF YOUR CODE*/
 
                 c.Fitness = fitness;
