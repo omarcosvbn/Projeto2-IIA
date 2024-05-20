@@ -53,12 +53,17 @@ namespace GeneticSharp.Runner.UnityApp.Car
                 //fitness = Distance;
 
                 //Função para carros chegarem no menor tempo possível à meta
-                fitness = Distance - EllapsedTime; 
+                //fitness = Distance - EllapsedTime; 
 
                 /*Função para carros gastarem menos energia possível e chegarem à meta
                 fitness = Distance + 0.0001f * (-SumTotalForces);
                 if(RoadCompleted == 1) fitness += 1000f;
                 */
+
+                // Função desafio extra
+                fitness = Distance + (SumVelocities / Velocities.Count) * 10f; // Media das Velocidades
+                if (RoadCompleted == 1) fitness += 500f; // Bonus por completar 
+                fitness += Forces.Max() * 50f; // Incentiva forças maiores (pulos, manobras)
                 /*END OF YOUR CODE*/
 
                 c.Fitness = fitness;
